@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/test"/>
+        <property name="username" value="root"/>
+        <property name="password" value="daixiongkun123"/>
+    </bean>
+
+    <bean id="StudentDAOImpl"
+        class="com.tutorialspoint.StudentDAOImpl">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+        <bean id="hellWorld" class="com.tutorialspoint.HelloWorld">
+            <property name="message" value="Hello World"></property>
+        </bean>
+
+    <bean id="textEditor" class="com.tutorialspoint.TextEditor">
+        <constructor-arg ref="spellChecker"></constructor-arg>
+    </bean>
+    <bean id="spellChecker" class="com.tutorialspoint.SpellChecker"></bean>
+
+    <bean id="student" class="com.tutorialspoint.Student">
+        <property name="name" value="Zara"></property>
+        <property name="age" value="12"></property>
+    </bean>
+</beans>
