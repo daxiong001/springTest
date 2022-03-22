@@ -3,48 +3,50 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context  http://www.springframework.org/schema/beans/spring-context.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
-<!--加载外部的properties文件-->
-    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
-<!--    spring配置链接数据库-->
-    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="driverClassName" value="${driverClassName}"/>
-        <property name="url" value="${url}"/>
-        <property name="username" value="${username}"/>
-        <property name="password" value="${password}"/>
-    </bean>
+<!--&lt;!&ndash;加载外部的properties文件&ndash;&gt;-->
+<!--    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>-->
+<!--&lt;!&ndash;    spring配置链接数据库&ndash;&gt;-->
+<!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        <property name="driverClassName" value="${driverClassName}"/>-->
+<!--        <property name="url" value="${url}"/>-->
+<!--        <property name="username" value="${username}"/>-->
+<!--        <property name="password" value="${password}"/>-->
+<!--    </bean>-->
 
-    <bean id="user1" class="domain.User">
-        <property name="name" value="lisi"></property>
-        <property name="addr" value="xiyatu"></property>
-    </bean>
+<!--    <bean id="user1" class="domain.User">-->
+<!--        <property name="name" value="lisi"></property>-->
+<!--        <property name="addr" value="xiyatu"></property>-->
+<!--    </bean>-->
 
 <!--    调用无惨构造方法实例化//普通参数注入-->
-    <bean id="UserDao" class="dao.impl.UserDaoImpl">
-        <property name="userName" value="zhangsan"></property>
-        <property name="age" value="12"></property>
-        <property name="strList">
-            <list>
-                <value>12</value>
-                <value>aa</value>
-                <value>bb</value>
-            </list>
-        </property>
-        <property name="properties">
-            <props>
-                <prop key="1">123</prop>
-                <prop key="2">a</prop>
-                <prop key="3">b</prop>
-            </props>
-        </property>
-        <property name="userMap">
-            <map>
-                <entry key="user1" value-ref="user1"></entry>
-            </map>
-        </property>
-    </bean>
+<!--    <bean id="UserDao" class="UserDaoImpl">-->
+<!--        <property name="userName" value="zhangsan"></property>-->
+<!--        <property name="age" value="12"></property>-->
+<!--        <property name="strList">-->
+<!--            <list>-->
+<!--                <value>12</value>-->
+<!--                <value>aa</value>-->
+<!--                <value>bb</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        <property name="properties">-->
+<!--            <props>-->
+<!--                <prop key="1">123</prop>-->
+<!--                <prop key="2">a</prop>-->
+<!--                <prop key="3">b</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--        <property name="userMap">-->
+<!--            <map>-->
+<!--                <entry key="user1" value-ref="user1"></entry>-->
+<!--            </map>-->
+<!--        </property>-->
+<!--    </bean>-->
 <!--    调用静态工厂方法实例化-->
 <!--    <bean id="UserDao" class="factory.StaticFactory" factory-method="getUserDao"></bean>-->
 
@@ -53,13 +55,17 @@
 <!--    <bean id="UserDao" factory-bean="factory" factory-method="getUserDao"></bean>-->
 
 <!--  依赖注入对象，services注入dao层,set方法-->
-<!--    <bean id="UserService" class="service.impl.UserServiceImpl">-->
+<!--    <bean id="UserService" class="UserServiceImpl">-->
 <!--        <property name="userDao" ref="UserDao"></property></bean>-->
 <!--    p命名空间，简写-->
-<!--    <bean id="UserService" class="service.impl.UserServiceImpl" p:userDao-ref="UserDao"></bean>-->
+<!--    <bean id="UserService" class="UserServiceImpl" p:userDao-ref="UserDao"></bean>-->
 
 <!--    依赖注入对象，构造方法注入-->
-    <bean id="UserService" class="service.impl.UserServiceImpl">
-        <constructor-arg name="userDao" ref="UserDao"></constructor-arg>
-    </bean>
+<!--    <bean id="UserService" class="UserServiceImpl">-->
+<!--        <constructor-arg name="userDao" ref="UserDao"></constructor-arg>-->
+<!--    </bean>-->
+
+
+<!--    配置注解的组件扫描-->
+<!--    <context:component-scan base-package="sghl"></context:component-scan>-->
 </beans>

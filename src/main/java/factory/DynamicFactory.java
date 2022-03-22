@@ -1,7 +1,7 @@
 package factory;
 
-import dao.UserDao;
-import dao.impl.UserDaoImpl;
+import sghl.dao.UserDao;
+import sghl.dao.impl.UserDaoImpl;
 
 public class DynamicFactory {
 

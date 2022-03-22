@@ -1,6 +1,6 @@
-package org.example;
+package sghl.example;
 
-import dao.UserDao;
+import sghl.dao.UserDao;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

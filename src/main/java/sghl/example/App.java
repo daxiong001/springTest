@@ -1,4 +1,4 @@
-package org.example;
+package sghl.example;
 
 /**
  * Hello world!

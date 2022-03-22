@@ -1,4 +1,4 @@
-package org.example;
+package sghl.example;
 
 import static org.junit.Assert.assertTrue;
 

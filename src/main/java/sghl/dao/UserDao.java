@@ -1,4 +1,4 @@
-package dao;
+package sghl.dao;
 
 public interface UserDao {
 
